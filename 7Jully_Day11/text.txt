@@ -1,0 +1,45 @@
+Notes :
+—------------------------------------------->
+How to create a  spring  project.
+Create simple Maven project.
+Then add dependencies for spring and MySQL connector as same as Hibernate in pom.xml file. from  Maven repository.
+Then add required configuration file which can be named by any Name which we want. inside the src/ main flash resources folder.
+( there is no restriction tospecific name for configuration file in Spring  as we know in Hibernate we have to make it as a persistent.XML and in servlet we have to make it as a web.xml).
+
+How the spring project is working→
+First created a class.( which object have been created)
+ then note down his ID and class name inside the XML configuration file below the Bean definition.
+ after creating object then we can use it anywhere(By given the reference of that class and getbean method) with whether we required in java file.
+—-------------------------------------------->
+Spring framework
+- creating object of a  our class.
+-Managing dependencies between our object (DI→ dependency injection)
+
+ In spring ID mean a object of that class which is declared in config.xml file.
+Creating object of our class using spring
+- there are couple of ways by which this can be achieved.
+
+ Option 1
+- we can configure the class whose object has to be created in an XML file.
+class HelloWorld {...}
+for ex:
+then in the xml, <bean id="hw" class="...HelloWorld" />
+
+ Option 2
+- we can use annotations instead. 
+-But we have to add one tag in XML file which we created.
+-Spring go and check the component scan in the XML file and check the respective package for the class which contain the passing object if it is available then executed the program.
+for ex:
+
+@Component("hw") 
+class HelloWorld {...}
+
+ But still we need to do one entry in the xml file to make this work: <context: component-scan base-package="com.cdac" />
+—------------------------------->
+Why we create object using spring?Not directly…
+→Lets consider wih example:
+In tighte coupling Meaning HDFC Bank have only HDFC ATM card in this case we can not required to to use spring boot but why do we e consider HDFC ATM may be used in any bank account ATM then this is known as loose coupling in this case we have to use spring concept to create object at runtime because the bank is not same but ATM card is static.
+ 
+Managing dependencies between the object. 
+-Direct Injection(DI) helps us in achieving loose coupling in our applications.
+- Also interfaces plays an important role in achieving loose coupling.
